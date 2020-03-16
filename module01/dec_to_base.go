@@ -10,5 +10,18 @@ package module01
 //   DecToBase(14, 2) => "1110"
 //
 func DecToBase(dec, base int) string {
-	return ""
+	const chars = "0123456789ABCDEF"
+
+	var s []byte
+	for dec > 0 {
+		s = append([]byte{chars[dec%base]}, s...)
+
+		if dec < base {
+			break
+		}
+
+		dec /= base
+	}
+
+	return string(s)
 }

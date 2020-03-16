@@ -25,5 +25,15 @@ package module01
 //   Fibonacci(14) => 377
 //
 func Fibonacci(n int) int {
-	return 0
+	if n == 0 || n == 1 {
+		return n
+	}
+
+	a, b := 0, 1
+
+	for c := 2; c <= n; c++ {
+		a, b = b, a+b
+	}
+
+	return b
 }

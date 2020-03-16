@@ -21,6 +21,13 @@ package module01
 //   Factor([3,5], 720) // []int{3,3,5,16}
 //   Factor([], 4) // []int{4}
 //
-func Factor(primes []int, number int) []int {
-	return nil
+func Factor(primes []int, number int) (factors []int) {
+	for _, v := range primes {
+		for number%v == 0 {
+			factors = append(factors, v)
+			number /= v
+		}
+	}
+
+	return factors
 }
